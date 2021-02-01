@@ -87,6 +87,22 @@ namespace LoopsNS
 
         private void resetButton_Click(object sender, EventArgs e)
         {
+            codeTextBox.ReadOnly = false;
+            codeTextBox.BackColor = Color.White;
+            runButton.Enabled = true;
+            codeTextBox.Text = @"using System;
+namespace LoopsNS
+{
+    public static class LoopsClass
+    {
+        public static void LoopsMethod()
+        {
+            // Write Code Here
+
+
+        }
+    }
+}";
 
         }
     }

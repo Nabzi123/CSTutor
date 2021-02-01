@@ -30,12 +30,12 @@ namespace CSTutor
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.topicListLabel = new System.Windows.Forms.Label();
             this.topic1Button = new CSTutor.RoundedEdgeButton();
-            this.testCodeButton = new CSTutor.RoundedEdgeButton();
-            this.loopsButton = new CSTutor.RoundedEdgeButton();
-            this.conditionalButton = new CSTutor.RoundedEdgeButton();
             this.variableButton = new CSTutor.RoundedEdgeButton();
+            this.conditionalButton = new CSTutor.RoundedEdgeButton();
+            this.loopsButton = new CSTutor.RoundedEdgeButton();
+            this.testCodeButton = new CSTutor.RoundedEdgeButton();
+            this.topicListLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,20 +46,10 @@ namespace CSTutor
             this.panel1.Controls.Add(this.conditionalButton);
             this.panel1.Controls.Add(this.loopsButton);
             this.panel1.Controls.Add(this.testCodeButton);
-            this.panel1.Location = new System.Drawing.Point(2, 43);
+            this.panel1.Location = new System.Drawing.Point(2, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 589);
             this.panel1.TabIndex = 8;
-            // 
-            // topicListLabel
-            // 
-            this.topicListLabel.AutoSize = true;
-            this.topicListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topicListLabel.Location = new System.Drawing.Point(139, -3);
-            this.topicListLabel.Name = "topicListLabel";
-            this.topicListLabel.Size = new System.Drawing.Size(131, 31);
-            this.topicListLabel.TabIndex = 9;
-            this.topicListLabel.Text = "Topic List";
             // 
             // topic1Button
             // 
@@ -73,26 +63,16 @@ namespace CSTutor
             this.topic1Button.Text = "Introduction";
             this.topic1Button.UseVisualStyleBackColor = true;
             // 
-            // testCodeButton
+            // variableButton
             // 
-            this.testCodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testCodeButton.Location = new System.Drawing.Point(22, 375);
-            this.testCodeButton.Name = "testCodeButton";
-            this.testCodeButton.Size = new System.Drawing.Size(379, 57);
-            this.testCodeButton.TabIndex = 7;
-            this.testCodeButton.Text = "Test Code";
-            this.testCodeButton.UseVisualStyleBackColor = true;
-            // 
-            // loopsButton
-            // 
-            this.loopsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loopsButton.Location = new System.Drawing.Point(22, 279);
-            this.loopsButton.Name = "loopsButton";
-            this.loopsButton.Size = new System.Drawing.Size(379, 57);
-            this.loopsButton.TabIndex = 7;
-            this.loopsButton.Text = "Loops";
-            this.loopsButton.UseVisualStyleBackColor = true;
-            this.loopsButton.Click += new System.EventHandler(this.loopsButton_Click);
+            this.variableButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variableButton.Location = new System.Drawing.Point(22, 93);
+            this.variableButton.Name = "variableButton";
+            this.variableButton.Size = new System.Drawing.Size(379, 57);
+            this.variableButton.TabIndex = 7;
+            this.variableButton.Text = "Variable and Types";
+            this.variableButton.UseVisualStyleBackColor = true;
+            this.variableButton.Click += new System.EventHandler(this.variableButton_Click);
             // 
             // conditionalButton
             // 
@@ -105,16 +85,36 @@ namespace CSTutor
             this.conditionalButton.UseVisualStyleBackColor = true;
             this.conditionalButton.Click += new System.EventHandler(this.conditionalButton_Click);
             // 
-            // variableButton
+            // loopsButton
             // 
-            this.variableButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.variableButton.Location = new System.Drawing.Point(22, 93);
-            this.variableButton.Name = "variableButton";
-            this.variableButton.Size = new System.Drawing.Size(379, 57);
-            this.variableButton.TabIndex = 7;
-            this.variableButton.Text = "Variable and Types";
-            this.variableButton.UseVisualStyleBackColor = true;
-            this.variableButton.Click += new System.EventHandler(this.variableButton_Click);
+            this.loopsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loopsButton.Location = new System.Drawing.Point(22, 279);
+            this.loopsButton.Name = "loopsButton";
+            this.loopsButton.Size = new System.Drawing.Size(379, 57);
+            this.loopsButton.TabIndex = 7;
+            this.loopsButton.Text = "Loops";
+            this.loopsButton.UseVisualStyleBackColor = true;
+            this.loopsButton.Click += new System.EventHandler(this.loopsButton_Click);
+            // 
+            // testCodeButton
+            // 
+            this.testCodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testCodeButton.Location = new System.Drawing.Point(22, 375);
+            this.testCodeButton.Name = "testCodeButton";
+            this.testCodeButton.Size = new System.Drawing.Size(379, 57);
+            this.testCodeButton.TabIndex = 7;
+            this.testCodeButton.Text = "Test Code";
+            this.testCodeButton.UseVisualStyleBackColor = true;
+            // 
+            // topicListLabel
+            // 
+            this.topicListLabel.AutoSize = true;
+            this.topicListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topicListLabel.Location = new System.Drawing.Point(139, 9);
+            this.topicListLabel.Name = "topicListLabel";
+            this.topicListLabel.Size = new System.Drawing.Size(131, 31);
+            this.topicListLabel.TabIndex = 9;
+            this.topicListLabel.Text = "Topic List";
             // 
             // TopicList
             // 
