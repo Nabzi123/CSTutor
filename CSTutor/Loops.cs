@@ -16,5 +16,33 @@ namespace CSTutor
         {
             InitializeComponent();
         }
+
+        private void codeTextBox_Load(object sender, EventArgs e)
+        {
+            codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            codeTextBox.Text = @"using System;
+namespace LoopsNS
+{
+    public static class LoopsClass
+    {
+        public static void LoopsMethod()
+        {
+            // Write Code Here
+
+
+        }
+    }
+}";
+        }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
