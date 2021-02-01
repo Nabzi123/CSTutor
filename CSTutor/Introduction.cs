@@ -17,6 +17,7 @@ namespace CSTutor
 {
     public partial class Introduction : Form
     {
+        private string expectedOutput;
 
 
         public Introduction()
@@ -88,7 +89,7 @@ namespace TutorNS
 
                 string userOutputText = writer.GetStringBuilder().ToString();
 
-                string expectedOutput = "Hello, World!";
+                expectedOutput = "Hello, World!";
 
                 if (userOutputText != expectedOutput)
                 {
