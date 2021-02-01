@@ -43,7 +43,8 @@ namespace CSTutor
 
         private void loopsButton_Click(object sender, EventArgs e)
         {
-
+            Form loopsForm = new Loops();
+            loopsForm.Show();
         }
     }
 }
