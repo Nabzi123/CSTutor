@@ -70,7 +70,7 @@ namespace CSTutor
             this.variableButton.Name = "variableButton";
             this.variableButton.Size = new System.Drawing.Size(379, 57);
             this.variableButton.TabIndex = 7;
-            this.variableButton.Text = "Variable and Types";
+            this.variableButton.Text = "Variables and Types";
             this.variableButton.UseVisualStyleBackColor = true;
             this.variableButton.Click += new System.EventHandler(this.variableButton_Click);
             // 

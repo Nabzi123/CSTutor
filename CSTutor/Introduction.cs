@@ -28,7 +28,7 @@ namespace CSTutor
             listView1.View = View.List;
         }
 
-
+  
 
 
         private void fastColouredTextBox1_Load(Object sender, EventArgs e)

@@ -36,6 +36,7 @@ namespace CSTutor
             this.label1 = new System.Windows.Forms.Label();
             this.runButton = new CSTutor.CircularButton();
             this.resetButton = new CSTutor.RoundedEdgeButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,12 +123,20 @@ namespace CSTutor
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.roundedEdgeButton1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(19, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(389, 764);
+            this.panel1.TabIndex = 7;
+            // 
             // Introduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.label1);
@@ -148,5 +157,6 @@ namespace CSTutor
         private System.Windows.Forms.Label label1;
         private CircularButton runButton;
         private RoundedEdgeButton resetButton;
+        private System.Windows.Forms.Panel panel1;
     }
 }
