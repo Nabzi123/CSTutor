@@ -53,14 +53,15 @@ namespace CSTutor
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // CS_Tutor_Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(826, 425);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.TitleLabel);
-            this.Name = "Form1";
+            this.Name = "CS_Tutor_Start";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
