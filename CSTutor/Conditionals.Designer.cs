@@ -49,7 +49,7 @@ namespace CSTutor
             this.outputListView.Size = new System.Drawing.Size(796, 299);
             this.outputListView.TabIndex = 4;
             this.outputListView.UseCompatibleStateImageBehavior = false;
-            this.outputListView.View = System.Windows.Forms.View.Details;
+            this.outputListView.View = System.Windows.Forms.View.List;
             // 
             // runButton
             // 
@@ -90,6 +90,7 @@ namespace CSTutor
             this.codeTextBox.CharWidth = 8;
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.codeTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.codeTextBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.codeTextBox.IsReplaceMode = false;
             this.codeTextBox.Location = new System.Drawing.Point(431, 76);
             this.codeTextBox.Name = "codeTextBox";
@@ -100,6 +101,7 @@ namespace CSTutor
             this.codeTextBox.TabIndex = 1;
             this.codeTextBox.Text = "fastColoredTextBox1";
             this.codeTextBox.Zoom = 100;
+            this.codeTextBox.Load += new System.EventHandler(this.codeTextBox_Load);
             // 
             // resetButton
             // 

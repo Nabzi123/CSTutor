@@ -39,7 +39,8 @@ namespace CSTutor
 
         private void conditionalButton_Click(object sender, EventArgs e)
         {
-
+            Form conditionals = new Conditionals();
+            conditionals.Show();
         }
 
         private void loopsButton_Click(object sender, EventArgs e)
