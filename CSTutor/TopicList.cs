@@ -33,7 +33,8 @@ namespace CSTutor
 
         private void variableButton_Click(object sender, EventArgs e)
         {
-
+            Form variablesAndTypes = new VariablesAndTypes();
+            variablesAndTypes.Show();
         }
 
         private void conditionalButton_Click(object sender, EventArgs e)
