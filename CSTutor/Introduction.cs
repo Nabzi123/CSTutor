@@ -24,9 +24,9 @@ namespace CSTutor
         {
             InitializeComponent();
 
-            fastColoredTextBox1.Load += new EventHandler(fastColouredTextBox1_Load);
+            codeTextBox.Load += new EventHandler(fastColouredTextBox1_Load);
             runButton.Click += new EventHandler(runButton_Click);
-            listView1.View = View.List;
+            outputListView.View = View.List;
         }
 
   
@@ -34,8 +34,8 @@ namespace CSTutor
 
         private void fastColouredTextBox1_Load(Object sender, EventArgs e)
         {
-            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
-            fastColoredTextBox1.Text = @"using System;
+            codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            codeTextBox.Text = @"using System;
 
 namespace TutorNS
 {
@@ -70,10 +70,10 @@ namespace TutorNS
             parameters.GenerateInMemory = true;
             parameters.GenerateExecutable = false;
 
-            listView1.Items.Clear();
+            outputListView.Items.Clear();
 
 
-            CompilerResults results = provider.CompileAssemblyFromSource(parameters, fastColoredTextBox1.Text);
+            CompilerResults results = provider.CompileAssemblyFromSource(parameters, codeTextBox.Text);
 
             if (!results.Errors.HasErrors)
             {
@@ -85,7 +85,7 @@ namespace TutorNS
 
                 Console.SetOut(originalOutput);
 
-                listView1.ForeColor = Color.LimeGreen;
+                outputListView.ForeColor = Color.LimeGreen;
 
                 string userOutputText = writer.GetStringBuilder().ToString();
 
@@ -93,15 +93,15 @@ namespace TutorNS
 
                 if (userOutputText != expectedOutput)
                 {
-                    listView1.Items.Add("The code compiled correctly but the output was incorrect: " + userOutputText);
-                    listView1.Items.Add(" ");
-                    listView1.Items.Add("The expected output is: " + expectedOutput);
+                    outputListView.Items.Add("The code compiled correctly but the output was incorrect: " + userOutputText);
+                    outputListView.Items.Add(" ");
+                    outputListView.Items.Add("The expected output is: " + expectedOutput);
                 }
                 else
                 {
-                    listView1.Items.Add("Success");
-                    fastColoredTextBox1.ReadOnly = true;
-                    fastColoredTextBox1.BackColor = Color.LightGray;
+                    outputListView.Items.Add("Success");
+                    codeTextBox.ReadOnly = true;
+                    codeTextBox.BackColor = Color.LightGray;
                     runButton.Enabled = false;
                     
                 }
@@ -115,9 +115,9 @@ namespace TutorNS
 
                     writer.Flush();
 
-                    listView1.ForeColor = Color.Red;
+                    outputListView.ForeColor = Color.Red;
 
-                    listView1.Items.Add(writer.GetStringBuilder().ToString());
+                    outputListView.Items.Add(writer.GetStringBuilder().ToString());
                 }
             }
             
@@ -130,10 +130,10 @@ namespace TutorNS
 
         private void roundedEdgeButton1_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox1.ReadOnly = false;
-            fastColoredTextBox1.BackColor = Color.White;
+            codeTextBox.ReadOnly = false;
+            codeTextBox.BackColor = Color.White;
             runButton.Enabled = true;
-            fastColoredTextBox1.Text = @"using System;
+            codeTextBox.Text = @"using System;
 
 namespace TutorNS
 {

@@ -31,18 +31,18 @@ namespace CSTutor
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Introduction));
-            this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.codeTextBox = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.outputListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.runButton = new CSTutor.CircularButton();
             this.resetButton = new CSTutor.RoundedEdgeButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // fastColoredTextBox1
+            // codeTextBox
             // 
-            this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
+            this.codeTextBox.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
         '{',
@@ -53,36 +53,35 @@ namespace CSTutor
         '\"',
         '\'',
         '\''};
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(179, 14);
-            this.fastColoredTextBox1.BackBrush = null;
-            this.fastColoredTextBox1.CharHeight = 14;
-            this.fastColoredTextBox1.CharWidth = 8;
-            this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.fastColoredTextBox1.IsReplaceMode = false;
-            this.fastColoredTextBox1.Location = new System.Drawing.Point(431, 76);
-            this.fastColoredTextBox1.Name = "fastColoredTextBox1";
-            this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(796, 395);
-            this.fastColoredTextBox1.TabIndex = 0;
-            this.fastColoredTextBox1.Text = "fastColoredTextBox1";
-            this.fastColoredTextBox1.Zoom = 100;
+            this.codeTextBox.AutoScrollMinSize = new System.Drawing.Size(179, 14);
+            this.codeTextBox.BackBrush = null;
+            this.codeTextBox.CharHeight = 14;
+            this.codeTextBox.CharWidth = 8;
+            this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.codeTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.codeTextBox.IsReplaceMode = false;
+            this.codeTextBox.Location = new System.Drawing.Point(431, 76);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Paddings = new System.Windows.Forms.Padding(0);
+            this.codeTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.codeTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("codeTextBox.ServiceColors")));
+            this.codeTextBox.Size = new System.Drawing.Size(796, 395);
+            this.codeTextBox.TabIndex = 0;
+            this.codeTextBox.Text = "fastColoredTextBox1";
+            this.codeTextBox.Zoom = 100;
             // 
-            // listView1
+            // outputListView
             // 
-            this.listView1.BackColor = System.Drawing.Color.Black;
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(431, 491);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(796, 299);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.outputListView.BackColor = System.Drawing.Color.Black;
+            this.outputListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputListView.ForeColor = System.Drawing.Color.White;
+            this.outputListView.HideSelection = false;
+            this.outputListView.Location = new System.Drawing.Point(431, 491);
+            this.outputListView.Name = "outputListView";
+            this.outputListView.Size = new System.Drawing.Size(796, 299);
+            this.outputListView.TabIndex = 3;
+            this.outputListView.UseCompatibleStateImageBehavior = false;
+            this.outputListView.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 
@@ -140,11 +139,11 @@ namespace CSTutor
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.fastColoredTextBox1);
+            this.Controls.Add(this.outputListView);
+            this.Controls.Add(this.codeTextBox);
             this.Name = "Introduction";
             this.Text = "Introduction";
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,8 +151,8 @@ namespace CSTutor
 
         #endregion
 
-        private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
-        private System.Windows.Forms.ListView listView1;
+        private FastColoredTextBoxNS.FastColoredTextBox codeTextBox;
+        private System.Windows.Forms.ListView outputListView;
         private System.Windows.Forms.Label label1;
         private CircularButton runButton;
         private RoundedEdgeButton resetButton;
