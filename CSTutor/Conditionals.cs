@@ -42,7 +42,22 @@ namespace ConditionalsNS
 
         private void resetButton_Click(object sender, EventArgs e)
         {
+            codeTextBox.ReadOnly = false;
+            runButton.Enabled = true;
+            codeTextBox.BackColor = Color.White;
+            codeTextBox.Text = @"using System;
+namespace ConditionalsNS
+{
+    public static class ConditionalsClass
+    {
+        public static void ConditionalsMethod()
+        {
+            // Write Code Here
 
+
+        }
+    }
+}";
         }
 
         private void runButton_Click(object sender, EventArgs e)
