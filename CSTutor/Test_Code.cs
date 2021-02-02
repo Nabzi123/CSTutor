@@ -95,8 +95,19 @@ namespace TestCodeNS
                 }
                 catch(Exception newException)
                 {
-                    Console.WriteLine(newException);
-                    writerOutput.Flush();
+                    Console.WriteLine(newException.ToString());
+                    streamWriter.Flush();
+
+                    streamWriter.Close();
+
+
+
+                    string[] lines = File.ReadAllLines(fileStream.Name);
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        outputListView.Items.Add(lines[i]);
+                    }
                     outputListView.Items.Add(writerOutput.GetStringBuilder().ToString());
 
                 }

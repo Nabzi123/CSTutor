@@ -26,7 +26,7 @@ namespace CSTutor
         {
             codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
             codeTextBox.Text = @"using System;
-namespace ConditonalsNS
+namespace ConditionalsNS
 {
     public static class ConditionalsClass
     {

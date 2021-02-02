@@ -15,8 +15,6 @@ namespace CSTutor
         public TopicList()
         {
             InitializeComponent();
-            topic1Button.Click += new EventHandler(topic1Button_Click);
-            testCodeButton.Click += new EventHandler(testCodeButton_Click);
         }
 
         private void topic1Button_Click(Object sender, EventArgs e)
