@@ -83,6 +83,20 @@ namespace VariablesAndTypesNS
 
         private void resetButton_Click(object sender, EventArgs e)
         {
+            codeTextBox.ReadOnly = false;
+            runButton.Enabled = true;
+            codeTextBox.BackColor = Color.White;
+            codeTextBox.Text = @"using System;
+namespace VariablesAndTypesNS
+{
+    public static class VariablesAndTypesClass
+    {
+        public static void VariablesAndTypesMethod()
+        {
+            
+        }
+    }
+}";
 
         }
     }

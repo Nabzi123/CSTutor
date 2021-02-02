@@ -48,7 +48,10 @@ namespace TestCodeNS
         private void runButton_Click(Object sender, EventArgs e)
         {
             var originalOutput = Console.Out;
+
             var fileStream = new FileStream("Test.txt", FileMode.Create);
+   
+            
 
             string filename = fileStream.Name;
 
@@ -95,7 +98,8 @@ namespace TestCodeNS
                 }
                 catch(Exception newException)
                 {
-                    Console.WriteLine(newException.ToString());
+                    Console.WriteLine(newException);
+
                     streamWriter.Flush();
 
                     streamWriter.Close();
@@ -120,8 +124,18 @@ namespace TestCodeNS
                 {
                     Console.WriteLine(error);
 
-                    writerOutput.Flush();
+                    streamWriter.Flush();
 
+                    streamWriter.Close();
+
+
+
+                    string[] lines = File.ReadAllLines(fileStream.Name);
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        outputListView.Items.Add(lines[i]);
+                    }
                     outputListView.Items.Add(writerOutput.GetStringBuilder().ToString());
                 }
             }
