@@ -16,5 +16,10 @@ namespace CSTutor
         {
             InitializeComponent();
         }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

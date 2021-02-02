@@ -99,6 +99,7 @@ namespace CSTutor
             this.runButton.Text = "🏃";
             this.runButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.runButton.UseVisualStyleBackColor = false;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
             // resetButton
             // 

@@ -15,6 +15,17 @@ namespace CSTutor
         public Conditionals()
         {
             InitializeComponent();
+            
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void runButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

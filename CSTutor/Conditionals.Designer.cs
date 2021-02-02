@@ -69,6 +69,7 @@ namespace CSTutor
             this.runButton.Text = "🏃";
             this.runButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.runButton.UseVisualStyleBackColor = false;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
             // codeTextBox
             // 
@@ -108,6 +109,7 @@ namespace CSTutor
             this.resetButton.TabIndex = 7;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // Conditionals
             // 
