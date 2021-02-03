@@ -91,7 +91,9 @@ namespace TestCodeNS
 
                     string[] lines = File.ReadAllLines(fileStream.Name);
 
-                    for(int i = 0; i < lines.Length; i++)
+                    outputListView.ForeColor = Color.LimeGreen;
+
+                    for (int i = 0; i < lines.Length; i++)
                     {
                         outputListView.Items.Add(lines[i]);
                     }
@@ -128,6 +130,7 @@ namespace TestCodeNS
 
                     streamWriter.Close();
 
+                    outputListView.ForeColor = Color.Red;
 
 
                     string[] lines = File.ReadAllLines(fileStream.Name);

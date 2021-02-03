@@ -79,6 +79,8 @@ namespace LoopsNS
                     Console.WriteLine(error);
                     newOutput.Flush();
 
+                    outputListView.ForeColor = Color.Red;
+
                     outputListView.Items.Add(newOutput.GetStringBuilder().ToString());
                 }
             }

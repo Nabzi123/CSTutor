@@ -96,6 +96,8 @@ namespace ConditionalsNS
             {
                 foreach (CompilerError error in results.Errors)
                 {
+                    outputListView.ForeColor = Color.Red;
+
                     Console.WriteLine(error);
                     newOutput.Flush();
 
