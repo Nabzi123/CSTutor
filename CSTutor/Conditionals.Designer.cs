@@ -131,6 +131,7 @@ namespace CSTutor
         }
 
         #endregion
+
         private System.Windows.Forms.ListView outputListView;
         private CircularButton runButton;
         private FastColoredTextBoxNS.FastColoredTextBox codeTextBox;
