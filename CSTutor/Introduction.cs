@@ -29,7 +29,7 @@ namespace CSTutor
             outputListView.View = View.List;
         }
 
-  
+
 
 
         private void fastColouredTextBox1_Load(Object sender, EventArgs e)
@@ -50,6 +50,13 @@ namespace TutorNS
         }
     }
 }";
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
         }
 
 

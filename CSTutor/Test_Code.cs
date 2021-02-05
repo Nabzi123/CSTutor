@@ -108,7 +108,7 @@ namespace TestCodeNS
                 }
                 catch(Exception newException)
                 {
-                    Console.WriteLine(newException);
+                    Console.WriteLine(newException.ToString());
 
                     streamWriter.Flush();
 
@@ -125,6 +125,8 @@ namespace TestCodeNS
                     outputListView.Items.Add(writerOutput.GetStringBuilder().ToString());
 
                 }
+               
+
                 
 
             }
@@ -132,6 +134,7 @@ namespace TestCodeNS
             {
                 foreach (CompilerError error in codeResults.Errors)
                 {
+
                     Console.WriteLine(error);
 
                     streamWriter.Flush();
