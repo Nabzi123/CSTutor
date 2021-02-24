@@ -21,6 +21,8 @@ namespace CSTutor
             base.Dispose(disposing);
         }
 
+        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -37,7 +39,10 @@ namespace CSTutor
             this.runButton = new CSTutor.CircularButton();
             this.resetButton = new CSTutor.RoundedEdgeButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.task1Button = new CSTutor.RoundedEdgeButton();
+            this.taskLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // codeTextBox
@@ -124,10 +129,30 @@ namespace CSTutor
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.task1Button);
             this.panel1.Location = new System.Drawing.Point(19, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(389, 764);
             this.panel1.TabIndex = 7;
+            // 
+            // task1Button
+            // 
+            this.task1Button.Location = new System.Drawing.Point(32, 45);
+            this.task1Button.Name = "task1Button";
+            this.task1Button.Size = new System.Drawing.Size(328, 57);
+            this.task1Button.TabIndex = 0;
+            this.task1Button.Text = "Getting Started";
+            this.task1Button.UseVisualStyleBackColor = true;
+            this.task1Button.Click += new System.EventHandler(this.task1Button_Click);
+            // 
+            // taskLabel
+            // 
+            this.taskLabel.AutoSize = true;
+            this.taskLabel.Location = new System.Drawing.Point(443, 52);
+            this.taskLabel.Name = "taskLabel";
+            this.taskLabel.Size = new System.Drawing.Size(35, 13);
+            this.taskLabel.TabIndex = 8;
+            this.taskLabel.Text = "label2";
             // 
             // Introduction
             // 
@@ -135,6 +160,7 @@ namespace CSTutor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
+            this.Controls.Add(this.taskLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.runButton);
@@ -144,6 +170,7 @@ namespace CSTutor
             this.Name = "Introduction";
             this.Text = "Introduction";
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +184,7 @@ namespace CSTutor
         private CircularButton runButton;
         private RoundedEdgeButton resetButton;
         private System.Windows.Forms.Panel panel1;
+        private RoundedEdgeButton task1Button;
+        private System.Windows.Forms.Label taskLabel;
     }
 }

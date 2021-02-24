@@ -11,6 +11,7 @@ using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using System.Reflection;
 using System.IO;
+using System.Data.OleDb;
 
 
 namespace CSTutor
@@ -18,7 +19,7 @@ namespace CSTutor
     public partial class Introduction : Form
     {
         private string expectedOutput;
-
+        private int selectedTask;
 
         public Introduction()
         {
@@ -35,21 +36,9 @@ namespace CSTutor
         private void fastColouredTextBox1_Load(Object sender, EventArgs e)
         {
             codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
-            codeTextBox.Text = @"using System;
-
-namespace TutorNS
-{
-    public static class TutorCode
-    {
-        public static void TutorMethod()
-        {
-            //Write code here
-            
+            codeTextBox.Text = @"//Code Will be entered here";
 
 
-        }
-    }
-}";
             for (int i = 0; i < codeTextBox.LinesCount; i++)
             {
                 if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
@@ -156,6 +145,48 @@ namespace TutorNS
 }";
 
             for(int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if(!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
+
+        }
+
+        private void task1Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 1;
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM Introduction WHERE TaskID = 1", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM Introduction WHERE TaskID = 1", connection);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
             {
                 if(!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
                 {
