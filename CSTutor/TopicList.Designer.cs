@@ -41,6 +41,7 @@ namespace CSTutor
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.topic1Button);
             this.panel1.Controls.Add(this.variableButton);
             this.panel1.Controls.Add(this.conditionalButton);
@@ -62,7 +63,7 @@ namespace CSTutor
             this.topic1Button.TabIndex = 6;
             this.topic1Button.Text = "Introduction";
             this.topic1Button.UseVisualStyleBackColor = true;
-            this.topic1Button.Click += new System.EventHandler(topic1Button_Click);
+            this.topic1Button.Click += new System.EventHandler(this.topic1Button_Click);
             // 
             // variableButton
             // 
@@ -106,7 +107,7 @@ namespace CSTutor
             this.testCodeButton.TabIndex = 7;
             this.testCodeButton.Text = "Test Code";
             this.testCodeButton.UseVisualStyleBackColor = true;
-            this.testCodeButton.Click += new System.EventHandler(testCodeButton_Click);
+            this.testCodeButton.Click += new System.EventHandler(this.testCodeButton_Click);
             // 
             // topicListLabel
             // 

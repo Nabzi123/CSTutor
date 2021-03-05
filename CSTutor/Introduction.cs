@@ -28,6 +28,7 @@ namespace CSTutor
             codeTextBox.Load += new EventHandler(fastColouredTextBox1_Load);
             runButton.Click += new EventHandler(runButton_Click);
             outputListView.View = View.List;
+           
         }
 
 
@@ -85,7 +86,20 @@ namespace CSTutor
 
                 string userOutputText = writer.GetStringBuilder().ToString();
 
-                expectedOutput = "Hello, World!";
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM Introduction WHERE TaskID = 1", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    expectedOutput = reader[0].ToString();
+                }
+
+                connection.Close();
 
                 if (userOutputText != expectedOutput)
                 {
@@ -95,9 +109,9 @@ namespace CSTutor
                 }
                 else
                 {
-                    outputListView.Items.Add("Success");
+                    outputListView.Items.Add("Success! The challenge was completed");
+                    outputListView.Items.Add("The output given by the console was " + writer.GetStringBuilder().ToString());
                     codeTextBox.ReadOnly = true;
-                    codeTextBox.BackColor = Color.LightGray;
                     runButton.Enabled = false;
                     
                 }
@@ -119,9 +133,6 @@ namespace CSTutor
             
 
 
-
-
-
         }
 
         private void roundedEdgeButton1_Click(object sender, EventArgs e)
@@ -129,20 +140,38 @@ namespace CSTutor
             codeTextBox.ReadOnly = false;
             codeTextBox.BackColor = Color.White;
             runButton.Enabled = true;
-            codeTextBox.Text = @"using System;
-
-namespace TutorNS
-{
-    public static class TutorCode
-    {
-        public static void TutorMethod()
-        {
-            //Write code here
             
+            if(selectedTask == 1)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+                connection.Open();
 
-        }
-    }
-}";
+                OleDbCommand command = new OleDbCommand("SELECT TaskString FROM Introduction WHERE TaskID = 1", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    taskLabel.Text = reader[0].ToString();
+                }
+
+                connection.Close();
+
+                connection.Open();
+
+                command = new OleDbCommand("SELECT ConsoleText FROM Introduction WHERE TaskID = 1", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
 
             for(int i = 0; i < codeTextBox.LinesCount; i++)
             {
@@ -158,7 +187,7 @@ namespace TutorNS
         {
             selectedTask = 1;
             OleDbConnection connection = new OleDbConnection();
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = ProjectDatabase.accdb;
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
 Persist Security Info = False; ";
             connection.Open();
 
@@ -195,5 +224,6 @@ Persist Security Info = False; ";
             }
 
         }
+
     }
 }

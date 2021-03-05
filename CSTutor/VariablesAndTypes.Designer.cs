@@ -35,7 +35,10 @@ namespace CSTutor
             this.outputListView = new System.Windows.Forms.ListView();
             this.runButton = new CSTutor.CircularButton();
             this.resetButton = new CSTutor.RoundedEdgeButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // codeTextBox
@@ -113,12 +116,33 @@ namespace CSTutor
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(40, 71);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(354, 837);
+            this.panel1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Location = new System.Drawing.Point(69, 752);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(215, 51);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // VariablesAndTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.outputListView);
@@ -126,6 +150,7 @@ namespace CSTutor
             this.Name = "VariablesAndTypes";
             this.Text = "VariablesAndTypes";
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -136,5 +161,7 @@ namespace CSTutor
         private System.Windows.Forms.ListView outputListView;
         private CircularButton runButton;
         private RoundedEdgeButton resetButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -135,4 +135,36 @@
         CgAAAAAAAAAAjQABAAH4/////P///woAAAAAAAAAAKQAAQAB9/////z///8KAAAAAAAAAACWAAEACw==
 </value>
   </data>
+  <data name="introMaterialLabel1.Text" xml:space="preserve">
+    <value>This is the introduction to the CSTutor program.
+
+This program is intended to teach you how to code in C# by 
+providing challenges which address specific points in 
+programmingand providing feedback based 
+on the challenges.
+
+The way the challenges will be provided are as follows. 
+
+A button with the challenge name will be in this panel on the left.
+
+When clicked the box on the right will be populated with both 
+editable and uneditable lines of code.
+
+Above the box will be a task which details what you must do to 
+solve the problem.
+
+Feedback will be provided in the box below the one with the code
+labelled feedback.
+
+To complete a challenge you must make appropriate edits
+based on the task given and if the correct output is given
+then the text box will lock itself and the output will give a success
+message.
+
+To run the code in the text box click the button with the little man
+running and to reset the code in case you made any mistakes
+and want to start again press the reset button.
+
+Try it yourself by pressing the button below </value>
+  </data>
 </root>

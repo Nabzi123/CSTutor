@@ -36,11 +36,13 @@ namespace CSTutor
             this.codeTextBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this.outputListView = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
-            this.runButton = new CSTutor.CircularButton();
-            this.resetButton = new CSTutor.RoundedEdgeButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.task1Button = new CSTutor.RoundedEdgeButton();
+            this.introMaterialLabel1 = new System.Windows.Forms.Label();
             this.taskLabel = new System.Windows.Forms.Label();
+            this.feedbackLabel = new System.Windows.Forms.Label();
+            this.task1Button = new CSTutor.RoundedEdgeButton();
+            this.resetButton = new CSTutor.RoundedEdgeButton();
+            this.runButton = new CSTutor.CircularButton();
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,12 +67,12 @@ namespace CSTutor
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.codeTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.codeTextBox.IsReplaceMode = false;
-            this.codeTextBox.Location = new System.Drawing.Point(431, 76);
+            this.codeTextBox.Location = new System.Drawing.Point(533, 99);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Paddings = new System.Windows.Forms.Padding(0);
             this.codeTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.codeTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("codeTextBox.ServiceColors")));
-            this.codeTextBox.Size = new System.Drawing.Size(796, 395);
+            this.codeTextBox.Size = new System.Drawing.Size(703, 395);
             this.codeTextBox.TabIndex = 0;
             this.codeTextBox.Text = "fastColoredTextBox1";
             this.codeTextBox.Zoom = 100;
@@ -81,9 +83,9 @@ namespace CSTutor
             this.outputListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputListView.ForeColor = System.Drawing.Color.White;
             this.outputListView.HideSelection = false;
-            this.outputListView.Location = new System.Drawing.Point(431, 491);
+            this.outputListView.Location = new System.Drawing.Point(530, 522);
             this.outputListView.Name = "outputListView";
-            this.outputListView.Size = new System.Drawing.Size(796, 299);
+            this.outputListView.Size = new System.Drawing.Size(703, 257);
             this.outputListView.TabIndex = 3;
             this.outputListView.UseCompatibleStateImageBehavior = false;
             this.outputListView.View = System.Windows.Forms.View.Details;
@@ -97,6 +99,68 @@ namespace CSTutor
             this.label1.Size = new System.Drawing.Size(185, 37);
             this.label1.TabIndex = 4;
             this.label1.Text = "Introduction";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.introMaterialLabel1);
+            this.panel1.Controls.Add(this.task1Button);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(19, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(505, 727);
+            this.panel1.TabIndex = 7;
+            // 
+            // introMaterialLabel1
+            // 
+            this.introMaterialLabel1.AutoSize = true;
+            this.introMaterialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.introMaterialLabel1.Location = new System.Drawing.Point(17, 9);
+            this.introMaterialLabel1.Name = "introMaterialLabel1";
+            this.introMaterialLabel1.Size = new System.Drawing.Size(463, 600);
+            this.introMaterialLabel1.TabIndex = 1;
+            this.introMaterialLabel1.Text = resources.GetString("introMaterialLabel1.Text");
+            // 
+            // taskLabel
+            // 
+            this.taskLabel.AutoSize = true;
+            this.taskLabel.Location = new System.Drawing.Point(530, 83);
+            this.taskLabel.Name = "taskLabel";
+            this.taskLabel.Size = new System.Drawing.Size(35, 13);
+            this.taskLabel.TabIndex = 8;
+            this.taskLabel.Text = "label2";
+            // 
+            // feedbackLabel
+            // 
+            this.feedbackLabel.AutoSize = true;
+            this.feedbackLabel.Location = new System.Drawing.Point(530, 506);
+            this.feedbackLabel.Name = "feedbackLabel";
+            this.feedbackLabel.Size = new System.Drawing.Size(55, 13);
+            this.feedbackLabel.TabIndex = 9;
+            this.feedbackLabel.Text = "Feedback\r\n";
+            // 
+            // task1Button
+            // 
+            this.task1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task1Button.Location = new System.Drawing.Point(72, 634);
+            this.task1Button.Name = "task1Button";
+            this.task1Button.Size = new System.Drawing.Size(362, 57);
+            this.task1Button.TabIndex = 0;
+            this.task1Button.Text = "Getting Started - Hello World!";
+            this.task1Button.UseVisualStyleBackColor = true;
+            this.task1Button.Click += new System.EventHandler(this.task1Button_Click);
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(1029, 12);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(104, 57);
+            this.resetButton.TabIndex = 6;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.roundedEdgeButton1_Click);
             // 
             // runButton
             // 
@@ -117,49 +181,13 @@ namespace CSTutor
             this.runButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.runButton.UseVisualStyleBackColor = false;
             // 
-            // resetButton
-            // 
-            this.resetButton.Location = new System.Drawing.Point(1029, 12);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(104, 57);
-            this.resetButton.TabIndex = 6;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.roundedEdgeButton1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.task1Button);
-            this.panel1.Location = new System.Drawing.Point(19, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 764);
-            this.panel1.TabIndex = 7;
-            // 
-            // task1Button
-            // 
-            this.task1Button.Location = new System.Drawing.Point(32, 45);
-            this.task1Button.Name = "task1Button";
-            this.task1Button.Size = new System.Drawing.Size(328, 57);
-            this.task1Button.TabIndex = 0;
-            this.task1Button.Text = "Getting Started";
-            this.task1Button.UseVisualStyleBackColor = true;
-            this.task1Button.Click += new System.EventHandler(this.task1Button_Click);
-            // 
-            // taskLabel
-            // 
-            this.taskLabel.AutoSize = true;
-            this.taskLabel.Location = new System.Drawing.Point(443, 52);
-            this.taskLabel.Name = "taskLabel";
-            this.taskLabel.Size = new System.Drawing.Size(35, 13);
-            this.taskLabel.TabIndex = 8;
-            this.taskLabel.Text = "label2";
-            // 
             // Introduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
+            this.Controls.Add(this.feedbackLabel);
             this.Controls.Add(this.taskLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.resetButton);
@@ -171,6 +199,7 @@ namespace CSTutor
             this.Text = "Introduction";
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +215,7 @@ namespace CSTutor
         private System.Windows.Forms.Panel panel1;
         private RoundedEdgeButton task1Button;
         private System.Windows.Forms.Label taskLabel;
+        private System.Windows.Forms.Label introMaterialLabel1;
+        private System.Windows.Forms.Label feedbackLabel;
     }
 }
