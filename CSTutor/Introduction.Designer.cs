@@ -88,13 +88,13 @@ namespace CSTutor
             this.outputListView.Size = new System.Drawing.Size(703, 257);
             this.outputListView.TabIndex = 3;
             this.outputListView.UseCompatibleStateImageBehavior = false;
-            this.outputListView.View = System.Windows.Forms.View.Details;
+            this.outputListView.View = System.Windows.Forms.View.List;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(34, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 37);
             this.label1.TabIndex = 4;
@@ -110,7 +110,7 @@ namespace CSTutor
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(19, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(505, 727);
+            this.panel1.Size = new System.Drawing.Size(490, 727);
             this.panel1.TabIndex = 7;
             // 
             // introMaterialLabel1
@@ -126,7 +126,7 @@ namespace CSTutor
             // taskLabel
             // 
             this.taskLabel.AutoSize = true;
-            this.taskLabel.Location = new System.Drawing.Point(530, 83);
+            this.taskLabel.Location = new System.Drawing.Point(530, 62);
             this.taskLabel.Name = "taskLabel";
             this.taskLabel.Size = new System.Drawing.Size(35, 13);
             this.taskLabel.TabIndex = 8;
@@ -195,6 +195,7 @@ namespace CSTutor
             this.Controls.Add(this.label1);
             this.Controls.Add(this.outputListView);
             this.Controls.Add(this.codeTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Introduction";
             this.Text = "Introduction";
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();

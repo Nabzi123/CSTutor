@@ -11,30 +11,25 @@ using System.CodeDom.Compiler;
 using System.Reflection;
 using System.IO;
 using Microsoft.CSharp;
+using System.Data.OleDb;
 
 namespace CSTutor
 {
     public partial class VariablesAndTypes : Form
     {
+        private int selectedTask;
+        private string expectedOutput;
+
         public VariablesAndTypes()
         {
             InitializeComponent();
+            panel2.Hide();
         }
 
         private void codeTextBox_Load(object sender, EventArgs e)
         {
             codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
-            codeTextBox.Text = @"using System;
-namespace VariablesAndTypesNS
-{
-    public static class VariablesAndTypesClass
-    {
-        public static void VariablesAndTypesMethod()
-        {
-            
-        }
-    }
-}";
+            codeTextBox.Text = "//No task selected";
 
             for(int i = 0; i < codeTextBox.LinesCount; i++ )
             {
@@ -52,13 +47,18 @@ namespace VariablesAndTypesNS
 
             Console.SetOut(newOutput);
 
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+
             CSharpCodeProvider codeProvider = new CSharpCodeProvider();
             CompilerParameters parameters = new CompilerParameters();
 
             parameters.ReferencedAssemblies.Add("System.dll");
             parameters.ReferencedAssemblies.Add("mscorlib.dll");
-            parameters.GenerateExecutable = false;
             parameters.GenerateInMemory = true;
+            parameters.GenerateExecutable = false;
+            
 
 
             outputListView.Items.Clear();
@@ -75,7 +75,60 @@ namespace VariablesAndTypesNS
 
                 outputListView.ForeColor = Color.LimeGreen;
 
-                outputListView.Items.Add(newOutput.GetStringBuilder().ToString());
+                string consoleOutput = newOutput.GetStringBuilder().ToString();
+
+                if(selectedTask == 1)
+                {
+                    connection.Open();
+
+                    OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM VariablesAndTypes WHERE TaskID = 1", connection);
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        expectedOutput = reader[0].ToString();
+                    }
+
+                    connection.Close();
+                }
+                else if(selectedTask == 2)
+                {
+                    connection.Open();
+
+                    OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM VariablesAndTypes WHERE TaskID = 2", connection);
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        expectedOutput = reader[0].ToString();
+                    }
+
+                    connection.Close();
+                }
+                else if (selectedTask == 3)
+                {
+                    connection.Open();
+
+                    OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM VariablesAndTypes WHERE TaskID = 3", connection);
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        expectedOutput = reader[0].ToString();
+                    }
+
+                    connection.Close();
+                }
+
+                if (consoleOutput == expectedOutput)
+                {
+                    outputListView.Items.Add("Success the code compiled correctly and the challenge was completed");
+                    outputListView.Items.Add(" ");
+                    outputListView.Items.Add("The console output was " + consoleOutput);
+                }
+                else
+                {
+                    outputListView.Items.Add("The code compiled correctly but the output was not correct");
+                    outputListView.Items.Add(" ");
+                    outputListView.Items.Add("The expected output is " + expectedOutput);
+                }
             }
             else
             {
@@ -96,17 +149,119 @@ namespace VariablesAndTypesNS
             codeTextBox.ReadOnly = false;
             runButton.Enabled = true;
             codeTextBox.BackColor = Color.White;
-            codeTextBox.Text = @"using System;
-namespace VariablesAndTypesNS
-{
-    public static class VariablesAndTypesClass
-    {
-        public static void VariablesAndTypesMethod()
-        {
             
+            if(selectedTask == 1)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 1", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
+
+            else if(selectedTask == 2)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 2", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
+
+            else if (selectedTask == 3)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 3", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if(!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
+
         }
-    }
-}";
+
+        private void subTopic1Button_Click(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            panel2.Show();
+
+
+        }
+
+        private void task1Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 1;
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM VariablesAndTypes WHERE TaskID = 1", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 1", connection);
+            reader = command.ExecuteReader();
+        
+            while(reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
 
             for(int i = 0; i < codeTextBox.LinesCount; i++)
             {
@@ -115,7 +270,89 @@ namespace VariablesAndTypesNS
                     codeTextBox.GetLine(i).ReadOnly = true;
                 }
             }
+        }
 
+        private void task2Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 2;
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM VariablesAndTypes WHERE TaskID = 2", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 2", connection);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
+        }
+
+        private void task3Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 3;
+
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM VariablesAndTypes WHERE TaskID = 3", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM VariablesAndTypes WHERE TaskID = 3", connection);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
         }
     }
 }
