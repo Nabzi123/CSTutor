@@ -183,9 +183,9 @@ namespace CSTutor
             this.panel2.Controls.Add(this.exampleTextBox1);
             this.panel2.Controls.Add(this.subTopic1Label);
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(19, 52);
+            this.panel2.Location = new System.Drawing.Point(12, 52);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(505, 727);
+            this.panel2.Size = new System.Drawing.Size(512, 727);
             this.panel2.TabIndex = 8;
             // 
             // task3Button
@@ -320,8 +320,8 @@ namespace CSTutor
             this.subTopic1Label1.Size = new System.Drawing.Size(414, 100);
             this.subTopic1Label1.TabIndex = 8;
             this.subTopic1Label1.Text = "C# is a strongly typed programming language\r\nThis means when a variable is assign" +
-    "ed a typed it cannot\r\nbe changed\r\n\r\nBelow are some examples of variables with di" +
-    "fferent types\r\n";
+    "ed a type it cannot\r\nbe changed\r\n\r\nBelow are some examples of variables with dif" +
+    "ferent types\r\n";
             // 
             // exampleCodeBox
             // 
@@ -350,7 +350,7 @@ namespace CSTutor
             this.exampleCodeBox.Language = FastColoredTextBoxNS.Language.CSharp;
             this.exampleCodeBox.LeftBracket = '(';
             this.exampleCodeBox.LeftBracket2 = '{';
-            this.exampleCodeBox.Location = new System.Drawing.Point(22, 126);
+            this.exampleCodeBox.Location = new System.Drawing.Point(9, 126);
             this.exampleCodeBox.Name = "exampleCodeBox";
             this.exampleCodeBox.Paddings = new System.Windows.Forms.Padding(0);
             this.exampleCodeBox.RightBracket = ')';

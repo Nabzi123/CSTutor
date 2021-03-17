@@ -11,33 +11,27 @@ using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using System.Reflection;
 using System.IO;
+using System.Data.OleDb;
 
 namespace CSTutor
 {
     public partial class Loops : Form
     {
+        private int selectedTask;
+        private string expectedOutput;
+
+
         public Loops()
         {
             InitializeComponent();
             outputListView.View = View.List;
+            whileLoopsPanel.Hide();
         }
 
         private void codeTextBox_Load(object sender, EventArgs e)
         {
             codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
-            codeTextBox.Text = @"using System;
-namespace LoopsNS
-{
-    public static class LoopsClass
-    {
-        public static void LoopsMethod()
-        {
-            // Write Code Here
-
-
-        }
-    }
-}";
+            codeTextBox.Text = "//No task selected";
 
             for (int i = 0; i < codeTextBox.LinesCount; i++)
             {
@@ -54,6 +48,10 @@ namespace LoopsNS
             var newOutput = new StringWriter();
 
             Console.SetOut(newOutput);
+
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
 
             CSharpCodeProvider codeProvider = new CSharpCodeProvider();
             CompilerParameters parameters = new CompilerParameters();
@@ -78,7 +76,62 @@ namespace LoopsNS
 
                 outputListView.ForeColor = Color.LimeGreen;
 
-                outputListView.Items.Add(newOutput.GetStringBuilder().ToString());
+                string consoleOutput = newOutput.GetStringBuilder().ToString();
+                if (selectedTask == 1)
+                {
+                    connection.Open();
+
+                    OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM Loops WHERE TaskID = 1", connection);
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        expectedOutput = reader[0].ToString();
+                    }
+
+                    connection.Close();
+                }
+                else if (selectedTask == 2)
+                {
+                    if (!codeTextBox.Text.Contains("while"))
+                    {
+                        outputListView.Items.Add("Please use a while loop to complete this challenge");
+                        
+                    }
+                    else
+                    {
+                        connection.Open();
+
+                        OleDbCommand command = new OleDbCommand("SELECT ExpectedOutput FROM Loops WHERE TaskID = 2", connection);
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            expectedOutput = reader[0].ToString();
+                        }
+                        connection.Close();
+
+                        if (consoleOutput == expectedOutput)
+                        {
+                            outputListView.Items.Add("Success the code compiled correctly and the challenge was completed");
+                            outputListView.Items.Add(" ");
+                            outputListView.Items.Add("The console output was " + consoleOutput);
+                        }
+                        else
+                        {
+                            outputListView.Items.Add("The code compiled correctly but the output was not correct");
+                            outputListView.Items.Add(" ");
+                            outputListView.Items.Add("The expected output is " + expectedOutput);
+                        }
+
+                    }
+                    
+
+                    
+                }
+
+                
+                
+
+
             }
             else
             {
@@ -95,26 +148,55 @@ namespace LoopsNS
 
         }
 
+
         private void resetButton_Click(object sender, EventArgs e)
         {
             codeTextBox.ReadOnly = false;
             codeTextBox.BackColor = Color.White;
             runButton.Enabled = true;
-            codeTextBox.Text = @"using System;
-namespace LoopsNS
-{
-    public static class LoopsClass
-    {
-        public static void LoopsMethod()
-        {
-            // Write Code Here
 
+            if (selectedTask == 1)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
 
-        }
-    }
-}";
-            
-            for(int i = 0; i < codeTextBox.LinesCount; i++)
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ConsoleText FROM Loops WHERE TaskID = 1", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
+            else if(selectedTask == 2)
+            {
+                OleDbConnection connection = new OleDbConnection();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("SELECT ConsoleText FROM Loops WHERE TaskID = 2", connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    codeTextBox.Text = reader[0].ToString();
+                    codeTextBox.SelectAll();
+                    codeTextBox.DoAutoIndent();
+                }
+
+                connection.Close();
+            }
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
             {
                 if(!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
                 {
@@ -122,6 +204,94 @@ namespace LoopsNS
                 }
             }
 
+        }
+
+        private void whileLoopsButton_Click(object sender, EventArgs e)
+        {
+            subtopicListPanel.Hide();
+            whileLoopsPanel.Show();
+        }
+
+        private void loopsTask1Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 1;
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM Loops WHERE TaskID = 1", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM Loops WHERE TaskID = 1", connection);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
+        }
+
+        private void loopsTask2Button_Click(object sender, EventArgs e)
+        {
+            selectedTask = 2;
+            OleDbConnection connection = new OleDbConnection();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\nabzi\Documents\CSTutor\CSTutor\ProjectDatabase.accdb;
+Persist Security Info = False; ";
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT TaskString FROM Loops WHERE TaskID = 2", connection);
+            OleDbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                taskLabel.Text = reader[0].ToString();
+            }
+
+            connection.Close();
+
+            connection.Open();
+
+            command = new OleDbCommand("SELECT ConsoleText FROM Loops WHERE TaskID = 2", connection);
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeTextBox.Text = reader[0].ToString();
+                codeTextBox.SelectAll();
+                codeTextBox.DoAutoIndent();
+            }
+
+            connection.Close();
+
+            for (int i = 0; i < codeTextBox.LinesCount; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(codeTextBox.GetLineText(i)))
+                {
+                    codeTextBox.GetLine(i).ReadOnly = true;
+                }
+            }
         }
     }
 }
