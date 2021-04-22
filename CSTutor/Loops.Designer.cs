@@ -69,14 +69,14 @@ namespace CSTutor
         '\"',
         '\'',
         '\''};
-            this.codeTextBox.AutoScrollMinSize = new System.Drawing.Size(154, 14);
+            this.codeTextBox.AutoScrollMinSize = new System.Drawing.Size(179, 14);
             this.codeTextBox.BackBrush = null;
             this.codeTextBox.CharHeight = 14;
             this.codeTextBox.CharWidth = 8;
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.codeTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.codeTextBox.IsReplaceMode = false;
-            this.codeTextBox.Location = new System.Drawing.Point(530, 104);
+            this.codeTextBox.Location = new System.Drawing.Point(542, 76);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Paddings = new System.Windows.Forms.Padding(0);
             this.codeTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
@@ -93,7 +93,7 @@ namespace CSTutor
             this.outputListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputListView.ForeColor = System.Drawing.Color.White;
             this.outputListView.HideSelection = false;
-            this.outputListView.Location = new System.Drawing.Point(530, 522);
+            this.outputListView.Location = new System.Drawing.Point(542, 515);
             this.outputListView.Name = "outputListView";
             this.outputListView.Size = new System.Drawing.Size(703, 257);
             this.outputListView.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace CSTutor
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(12, 9);
+            this.titleLabel.Location = new System.Drawing.Point(15, 9);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(105, 37);
             this.titleLabel.TabIndex = 10;
@@ -150,7 +150,7 @@ namespace CSTutor
             this.subtopicListPanel.Controls.Add(this.exampleTextBox1);
             this.subtopicListPanel.Controls.Add(this.subTopic1Label);
             this.subtopicListPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.subtopicListPanel.Location = new System.Drawing.Point(-4, 52);
+            this.subtopicListPanel.Location = new System.Drawing.Point(12, 53);
             this.subtopicListPanel.Name = "subtopicListPanel";
             this.subtopicListPanel.Size = new System.Drawing.Size(512, 727);
             this.subtopicListPanel.TabIndex = 11;
@@ -239,9 +239,9 @@ namespace CSTutor
             this.whileLoopsPanel.Controls.Add(this.whileLoopsLabel2);
             this.whileLoopsPanel.Controls.Add(this.exampleLoopTextBox1);
             this.whileLoopsPanel.Controls.Add(this.WhileLoopsLabel1);
-            this.whileLoopsPanel.Location = new System.Drawing.Point(4, 49);
+            this.whileLoopsPanel.Location = new System.Drawing.Point(6, 49);
             this.whileLoopsPanel.Name = "whileLoopsPanel";
-            this.whileLoopsPanel.Size = new System.Drawing.Size(512, 1034);
+            this.whileLoopsPanel.Size = new System.Drawing.Size(527, 776);
             this.whileLoopsPanel.TabIndex = 12;
             // 
             // loopsTask2Button
@@ -351,7 +351,6 @@ namespace CSTutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
             this.Controls.Add(this.taskLabel);

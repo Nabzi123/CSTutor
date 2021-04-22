@@ -34,6 +34,8 @@ namespace CSTutor
             this.codeTextBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this.runButton = new CSTutor.CircularButton();
             this.outputListView = new System.Windows.Forms.ListView();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.outputTextLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,18 +52,24 @@ namespace CSTutor
         '\"',
         '\'',
         '\''};
+            this.codeTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
+    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
             this.codeTextBox.AutoScrollMinSize = new System.Drawing.Size(187, 14);
             this.codeTextBox.BackBrush = null;
+            this.codeTextBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.codeTextBox.CharHeight = 14;
             this.codeTextBox.CharWidth = 8;
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.codeTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.codeTextBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.codeTextBox.IsReplaceMode = false;
             this.codeTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            this.codeTextBox.LeftBracket = '(';
+            this.codeTextBox.LeftBracket2 = '{';
             this.codeTextBox.Location = new System.Drawing.Point(46, 95);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Paddings = new System.Windows.Forms.Padding(0);
+            this.codeTextBox.RightBracket = ')';
+            this.codeTextBox.RightBracket2 = '}';
             this.codeTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.codeTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("codeTextBox.ServiceColors")));
             this.codeTextBox.Size = new System.Drawing.Size(1151, 384);
@@ -101,12 +109,34 @@ namespace CSTutor
             this.outputListView.UseCompatibleStateImageBehavior = false;
             this.outputListView.View = System.Windows.Forms.View.List;
             // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(48, 22);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(164, 37);
+            this.titleLabel.TabIndex = 11;
+            this.titleLabel.Text = "Test Code";
+            // 
+            // outputTextLabel
+            // 
+            this.outputTextLabel.AutoSize = true;
+            this.outputTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputTextLabel.Location = new System.Drawing.Point(43, 492);
+            this.outputTextLabel.Name = "outputTextLabel";
+            this.outputTextLabel.Size = new System.Drawing.Size(120, 20);
+            this.outputTextLabel.TabIndex = 12;
+            this.outputTextLabel.Text = "Console Output";
+            // 
             // Test_Code
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1248, 828);
+            this.Controls.Add(this.outputTextLabel);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.outputListView);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.codeTextBox);
@@ -114,6 +144,7 @@ namespace CSTutor
             this.Text = "Test_Code";
             ((System.ComponentModel.ISupportInitialize)(this.codeTextBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,5 +153,7 @@ namespace CSTutor
         private FastColoredTextBoxNS.FastColoredTextBox codeTextBox;
         private CircularButton runButton;
         private System.Windows.Forms.ListView outputListView;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label outputTextLabel;
     }
 }
